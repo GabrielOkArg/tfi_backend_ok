@@ -48,7 +48,7 @@ namespace TFI_Backend.Application.Reclamos.Update
             reclamo.Estado = command.Estado;
             if (presupuesExistente == null)
             {
-                if (command.PresupuestoRuta != "" || command.PresupuestoRuta != null)
+                if (command.PresupuestoRuta != "" && command.PresupuestoRuta != null)
                 {
                     reclamo.Presupuesto = new Core.Model.ReclamoPresupuesto
                     { Ruta = command.PresupuestoRuta };

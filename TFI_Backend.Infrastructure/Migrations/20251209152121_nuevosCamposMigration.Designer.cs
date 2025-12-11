@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TFI_Backend.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using TFI_Backend.Infrastructure.Data;
 namespace TFI_Backend.Infrastructure.Migrations
 {
     [DbContext(typeof(GestionReclamosDbContext))]
-    partial class GestionReclamosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251209152121_nuevosCamposMigration")]
+    partial class nuevosCamposMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,6 +62,7 @@ namespace TFI_Backend.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ComentarioTecnico")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Costo")
@@ -75,7 +79,7 @@ namespace TFI_Backend.Infrastructure.Migrations
                     b.Property<DateTime>("FechaCreacion")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("FechaFin")
+                    b.Property<DateTime>("FechaFin")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Resolucion")

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TFI_Backend.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using TFI_Backend.Infrastructure.Data;
 namespace TFI_Backend.Infrastructure.Migrations
 {
     [DbContext(typeof(GestionReclamosDbContext))]
-    partial class GestionReclamosDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251209154357_nuevosCamposMigrationnullValues")]
+    partial class nuevosCamposMigrationnullValues
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

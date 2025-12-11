@@ -12,6 +12,8 @@ namespace TFI_Backend.Core.Model
         public string Titulo { get; set; } = string.Empty;
         public string Descripcion { get; set; } = string.Empty;
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
+        public DateTime? FechaFin { get; set; }
+        public string? ComentarioTecnico { get; set; }
         public string Estado { get; set; } = "Pendiente"; // Pendiente / EnProceso / Resuelto
         public string? Resolucion { get; set; }
         // Relación con Usuario
