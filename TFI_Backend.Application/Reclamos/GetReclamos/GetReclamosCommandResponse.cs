@@ -14,8 +14,8 @@ namespace TFI_Backend.Application.Reclamos.GetReclamos
         public string? Descripcion { get; set; }
         public string? Estado { get; set; }
         public DateTime FechaCreacion { get; set; }
-        public DateTime FechaFin { get; set; }
-        public string ComentarioTecnico { get; set; }
+        public DateTime? FechaFin { get; set; }
+        public string ComentarioTecnico { get; set; } = string.Empty;
         public int UsuarioId { get; set; }
         public string? UsuarioNombre { get; set; }
         public decimal Costo { get; set; } = 0;

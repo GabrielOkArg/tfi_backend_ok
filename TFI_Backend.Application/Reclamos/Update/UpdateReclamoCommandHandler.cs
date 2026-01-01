@@ -35,13 +35,17 @@ namespace TFI_Backend.Application.Reclamos.Update
                 throw new Exception("El reclamo no existe.");
            
                 var presupuesExistente = _reclamoPresupuesto.GetAll().Where(re => re.ReclamoId == command.Id).FirstOrDefault();
-            
+
 
             // 3. Validar que el reclamo pertenece al usuario logueado
             //if (reclamo.UsuarioId != currentUserId)
             //    throw new UnauthorizedAccessException("No tienes permiso para modificar este reclamo.");
 
             // 4. Actualizar campos
+            if (reclamo.Estado != command.Estado && command.Estado == "Finaliazado")
+            {
+                reclamo.FechaFin = DateTime.Now;
+            }
             reclamo.Titulo = command.Tipo;
             reclamo.Descripcion = command.Descripcion;
             reclamo.Costo = command.Costo ?? reclamo.Costo;

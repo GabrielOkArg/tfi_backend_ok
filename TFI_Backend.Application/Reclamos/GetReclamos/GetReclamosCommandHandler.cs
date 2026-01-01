@@ -36,14 +36,16 @@ namespace TFI_Backend.Application.Reclamos.GetReclamos
                     AreaNombre = r.Area?.Nombre,
                     Imagenes = r.Imagenes.Select(i => i.Ruta).ToList(),
                     Presupuesto = r.Presupuesto !=null? r.Presupuesto.Ruta : "",
-                    FechaFin = (DateTime)r.FechaFin,
-                    ComentarioTecnico = r.ComentarioTecnico
+                    FechaFin  = r.FechaFin ?? DateTime.MinValue,
+
+                    ComentarioTecnico = r.ComentarioTecnico ?? "",
+
 
                 }).ToList();
 
                 return await Task.FromResult(response);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
